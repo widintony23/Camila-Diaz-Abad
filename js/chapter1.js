@@ -1,188 +1,263 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Capítulo 1 — Dos mundos, una historia</title>
-  <meta name="description" content="El primer capítulo del libro de amor para Camila Díaz Abad.">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-  <!-- Estilos globales primero, luego los exclusivos del capítulo -->
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/chapter1.css">
-</head>
-<body>
+/* ============================================================
+   LIBRO DE AMOR — CAMILA DÍAZ ABAD
+   script.js · Completo
+   ============================================================ */
 
-  <!-- Botón volver al índice -->
-  <a href="index.html" class="back-btn">← Volver</a>
+(function () {
+  'use strict';
 
-  <!-- ══════════════════════════════════════════
-       HERO DEL CAPÍTULO
-  ══════════════════════════════════════════ -->
-  <section class="ch-hero">
-    <div class="stars" id="starsHero"></div>
-    <p class="ch-hero-badge">Capítulo uno · El origen</p>
-    <h1 class="ch-hero-title">Dos mundos,<br><em>Una historia</em></h1>
-    <p class="ch-hero-sub">Entre México y Colombia hay kilómetros de distancia y un amor que no preguntó por mapas.</p>
-    <p class="scroll-hint-hero">▼ &nbsp; sigue leyendo</p>
-  </section>
+  /* ─────────────────────────────────────────────────────
+     1. ESTRELLAS ANIMADAS
+     Genera partículas en todos los contenedores .stars
+  ───────────────────────────────────────────────────── */
+  function buildStars(container, count) {
+    if (!container) return;
+    for (let i = 0; i < count; i++) {
+      const el = document.createElement('div');
+      el.className = 'star-dot';
+      const size = Math.random() * 2.4 + 0.4;
+      el.style.cssText = [
+        `width:${size}px`,
+        `height:${size}px`,
+        `top:${Math.random() * 100}%`,
+        `left:${Math.random() * 100}%`,
+        `--d:${(2 + Math.random() * 4).toFixed(2)}s`,
+        `--delay:${(Math.random() * 6).toFixed(2)}s`,
+        `--op:${(0.3 + Math.random() * 0.7).toFixed(2)}`
+      ].join(';');
+      container.appendChild(el);
+    }
+  }
 
-  <!-- ══════════════════════════════════════════
-       MAPA / LÍNEA DE CONEXIÓN
-  ══════════════════════════════════════════ -->
-  <section class="map-visual">
-    <div class="map-inner">
-      <p class="chapter-label fade-in">El punto de encuentro</p>
-      <h2 class="page-heading fade-in" style="text-align:center;">
-        Donde dos países<br><em>se vuelven uno</em>
-      </h2>
+  document.querySelectorAll('.stars').forEach(c => buildStars(c, 90));
 
-      <div class="countries-line fade-in">
-        <div class="country-node">
-          <div class="country-flag-big mx-flag"><div class="s1"></div><div class="s2"></div><div class="s3"></div></div>
-          <div class="country-name">México</div>
-          <div class="country-person">Camila</div>
-        </div>
-        <div class="line-connector">
-          <div class="line-path"></div>
-          <span class="line-heart">♥</span>
-        </div>
-        <div class="country-node">
-          <div class="country-flag-big co-flag"><div class="s1"></div><div class="s2"></div><div class="s3"></div></div>
-          <div class="country-name">Colombia</div>
-          <div class="country-person">Widinton</div>
-        </div>
-      </div>
+  /* ─────────────────────────────────────────────────────
+     2. MÚSICA DE FONDO
+  ───────────────────────────────────────────────────── */
+  const audio    = document.getElementById('bgMusic');
+  const musicBtn = document.getElementById('musicBtn');
 
-      <p class="page-text fade-in" style="text-align:center;max-width:540px;margin:0 auto 1.5rem;">
-        Entre <strong>México y Colombia</strong> hay kilómetros de distancia, dos banderas, dos acentos, dos culturas llenas de color y de vida. El café y el chocolate, los mariachis y la cumbia. Y en medio de todo eso, <strong>nos encontramos tú y yo.</strong>
-      </p>
-    </div>
-  </section>
+  if (audio && musicBtn) {
+    let playing = false;
 
-  <!-- ══════════════════════════════════════════
-       DATOS: DOS CULTURAS
-  ══════════════════════════════════════════ -->
-  <section class="cream-section">
-    <div class="cream-inner">
-      <p class="chapter-label fade-in">Lo que traíamos cada uno</p>
-      <h2 class="page-heading fade-in">Lo que nos<br><em>hace tan distintos</em></h2>
+    musicBtn.addEventListener('click', () => {
+      if (playing) {
+        audio.pause();
+        musicBtn.classList.remove('playing');
+        musicBtn.setAttribute('aria-label', 'Reproducir música');
+      } else {
+        audio.play().catch(() => {});
+        musicBtn.classList.add('playing');
+        musicBtn.setAttribute('aria-label', 'Pausar música');
+      }
+      playing = !playing;
+    });
 
-      <div class="facts-grid fade-in">
-        <div class="fact-card">
-          <div class="fact-icon">🎺</div>
-          <div class="fact-title">Mariachi</div>
-          <div class="fact-text">México lleva el amor en la música. Las mañanitas, el grito, la fiesta que nunca para.</div>
-        </div>
-        <div class="fact-card">
-          <div class="fact-icon">🎶</div>
-          <div class="fact-title">Cumbia</div>
-          <div class="fact-text">Colombia baila su historia. La cumbia, el vallenato, el alma que se expresa sin palabras.</div>
-        </div>
-        <div class="fact-card">
-          <div class="fact-icon">☕</div>
-          <div class="fact-title">Chocolate vs Café</div>
-          <div class="fact-text">Dos bebidas, dos mañanas distintas. El mejor café del mundo y el chocolate más espeso.</div>
-        </div>
-        <div class="fact-card">
-          <div class="fact-icon">🌮</div>
-          <div class="fact-title">Sabores</div>
-          <div class="fact-text">Tacos y arepas. Diferentes, riquísimos, insustituibles. Como nosotros.</div>
-        </div>
-        <div class="fact-card">
-          <div class="fact-icon">💬</div>
-          <div class="fact-title">El mismo idioma</div>
-          <div class="fact-text">Dos acentos distintos que dicen exactamente lo mismo: que se quieren.</div>
-        </div>
-        <div class="fact-card">
-          <div class="fact-icon">♥</div>
-          <div class="fact-title">Lo que compartimos</div>
-          <div class="fact-text">El calor del pueblo, la familia primero, el amor que se siente en cada palabra.</div>
-        </div>
-      </div>
+    // Intentar autoplay silencioso (algunos browsers lo bloquean)
+    window.addEventListener('click', function tryAutoplay() {
+      if (!playing) {
+        audio.volume = 0.4;
+        audio.play().then(() => {
+          playing = true;
+          musicBtn.classList.add('playing');
+        }).catch(() => {});
+      }
+      window.removeEventListener('click', tryAutoplay);
+    }, { once: true });
+  }
 
-      <div class="divider"></div>
+  /* ─────────────────────────────────────────────────────
+     3. NAV DOTS (puntos de navegación laterales)
+  ───────────────────────────────────────────────────── */
+  const navContainer = document.getElementById('navDots');
+  const sections     = Array.from(document.querySelectorAll('section[id]'));
 
-      <div class="quote-box fade-in">
-        <p>"Dos continentes, dos mundos distintos… y sin embargo, el mismo idioma hablando del corazón."</p>
-      </div>
-    </div>
-  </section>
+  const sectionLabels = {
+    s0: 'Portada',
+    s1: 'Dos mundos',
+    s2: 'El chat',
+    s3: 'Diez meses',
+    s4: 'La tormenta',
+    s5: 'Promesas',
+    s6: 'Lo que vimos',
+    s7: 'Final'
+  };
 
-  <!-- ══════════════════════════════════════════
-       LO QUE NOS UNE (sección oscura)
-  ══════════════════════════════════════════ -->
-  <section class="dark-section">
-    <div class="dark-inner">
-      <p class="chapter-label fade-in">El punto de unión</p>
-      <h2 class="page-heading fade-in">Solo nosotros<br><em>representamos esto</em></h2>
+  if (navContainer && sections.length) {
+    sections.forEach((sec, i) => {
+      const dot = document.createElement('button');
+      dot.className = 'nav-dot';
+      dot.setAttribute('aria-label', sectionLabels[sec.id] || `Sección ${i + 1}`);
+      dot.title = sectionLabels[sec.id] || '';
+      dot.addEventListener('click', () => {
+        sec.scrollIntoView({ behavior: 'smooth' });
+      });
+      navContainer.appendChild(dot);
+    });
 
-      <p class="page-text fade-in">No fue una coincidencia. Fue algo que no tiene nombre del todo, algo tan inexplicable hasta para nosotros mismos. Dos personas de países distintos, con historias distintas, que de repente empezaron a construir una historia juntos.</p>
+    // IntersectionObserver para resaltar el dot activo
+    const dotEls = navContainer.querySelectorAll('.nav-dot');
 
-      <p class="page-text fade-in"><strong>México y Colombia juntos.</strong> No en un mapa, sino en una conversación, en una pantalla, en la voz del otro al otro lado. Solo nosotros representamos la unión de dos culturas en un mismo amor.</p>
+    const ioNav = new IntersectionObserver(
+      entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const idx = sections.indexOf(entry.target);
+            dotEls.forEach((d, i) => d.classList.toggle('active', i === idx));
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
 
-      <div class="divider fade-in"></div>
+    sections.forEach(s => ioNav.observe(s));
+  }
 
-      <div class="quote-box fade-in">
-        <p>"Lo que el mundo llama raro, nosotros lo llamamos nuestro."</p>
-      </div>
+  /* ─────────────────────────────────────────────────────
+     4. FADE-IN ON SCROLL
+     Anima cualquier elemento con clase .fade-in
+  ───────────────────────────────────────────────────── */
+  const fadeEls = document.querySelectorAll('.fade-in');
 
-      <p class="page-text fade-in">Porque no necesitamos el guión de siempre para construir algo real. <strong>Lo hicimos a nuestra manera y así va a ser siempre.</strong> Y eso, mi goshera, es lo más nuestro que tenemos.</p>
-    </div>
-  </section>
+  if (fadeEls.length) {
+    const ioFade = new IntersectionObserver(
+      entries => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            // pequeño delay escalonado si varios entran a la vez
+            setTimeout(() => {
+              entry.target.classList.add('visible');
+            }, i * 80);
+            ioFade.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
 
-  <!-- ══════════════════════════════════════════
-       LO QUE CADA UNO TRAJO
-  ══════════════════════════════════════════ -->
-  <section class="light-section">
-    <div class="light-inner">
-      <p class="chapter-label fade-in">Dos lados de la misma historia</p>
-      <h2 class="page-heading fade-in">Lo que cada uno<br><em>trajo a esto</em></h2>
+    fadeEls.forEach(el => ioFade.observe(el));
+  }
 
-      <div class="promise-grid fade-in">
-        <div class="promise-card">
-          <div class="promise-icon">🇲🇽</div>
-          <div class="promise-body">
-            <div class="promise-title">Ella trajo</div>
-            <div class="promise-text">Su acento mexicano, su manera de decir las cosas directas y con cariño. Su energía, su humor, su forma de querer que no se parece a nada que haya conocido antes. Y ese carácter que la hace única en este mundo.</div>
-          </div>
-        </div>
-        <div class="promise-card">
-          <div class="promise-icon">🇨🇴</div>
-          <div class="promise-body">
-            <div class="promise-title">Él trajo</div>
-            <div class="promise-text">Su acento colombiano, sus palabras que siempre intentan ser honestas. La voluntad de conocer su mundo, de aprender sus referencias, de hacerse parte de lo que ella es. Y las ganas de construir algo que valga la pena.</div>
-          </div>
-        </div>
-      </div>
+  /* ─────────────────────────────────────────────────────
+     5. EFECTO PARALLAX SUAVE EN LA PORTADA
+  ───────────────────────────────────────────────────── */
+  const coverSection = document.getElementById('s0');
 
-      <div class="divider fade-in"></div>
+  if (coverSection) {
+    window.addEventListener('scroll', () => {
+      const scrollY = window.scrollY;
+      const coverH  = coverSection.offsetHeight;
+      if (scrollY < coverH * 1.2) {
+        const deco = coverSection.querySelector('.cover-deco');
+        if (deco) deco.style.transform = `translate(-50%, calc(-50% + ${scrollY * 0.15}px))`;
+        const starLayer = coverSection.querySelector('.stars');
+        if (starLayer) starLayer.style.transform = `translateY(${scrollY * 0.08}px)`;
+      }
+    }, { passive: true });
+  }
 
-      <p class="page-text fade-in" style="text-align:center;font-style:italic;max-width:520px;margin:0 auto;">
-        Dos mundos que se encontraron en el lugar más inesperado y decidieron quedarse juntos. <strong>Eso somos. Eso seguiremos siendo.</strong>
-      </p>
-    </div>
-  </section>
+  /* ─────────────────────────────────────────────────────
+     6. HOVER: MONTH BUBBLES — tooltip de mes
+  ───────────────────────────────────────────────────── */
+  const monthNames = [
+    'Primer mes', 'Segundo mes', 'Tercer mes', 'Cuarto mes',
+    'Quinto mes', 'Sexto mes', 'Séptimo mes', 'Octavo mes',
+    'Noveno mes', '¡Décimo mes! 🎉'
+  ];
 
-  <!-- ══════════════════════════════════════════
-       CIERRE DEL CAPÍTULO
-  ══════════════════════════════════════════ -->
-  <section class="chapter-close">
-    <div class="close-inner">
-      <div class="stars" id="starsClose"></div>
+  document.querySelectorAll('.month-bubble').forEach((bubble, i) => {
+    bubble.setAttribute('title', monthNames[i] || `Mes ${i + 1}`);
+  });
 
-      <span class="final-heart" style="position:relative;z-index:2;">♥</span>
+  /* ─────────────────────────────────────────────────────
+     7. SCROLL SUAVE CON TECLAS
+  ───────────────────────────────────────────────────── */
+  let currentSection = 0;
 
-      <h2 class="final-title" style="position:relative;z-index:2;">Así empezó<br><em>todo.</em></h2>
+  document.addEventListener('keydown', e => {
+    if (!sections.length) return;
+    if (e.key === 'ArrowDown' || e.key === 'PageDown') {
+      e.preventDefault();
+      currentSection = Math.min(currentSection + 1, sections.length - 1);
+      sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+    }
+    if (e.key === 'ArrowUp' || e.key === 'PageUp') {
+      e.preventDefault();
+      currentSection = Math.max(currentSection - 1, 0);
+      sections[currentSection].scrollIntoView({ behavior: 'smooth' });
+    }
+  });
 
-      <p class="final-text" style="position:relative;z-index:2;">
-        Con dos banderas, dos acentos y un idioma en común. Con kilómetros de por medio y algo mucho más fuerte que cualquier mapa. Este fue el origen. Y fue perfecto a su manera.
-      </p>
+  /* sincroniza currentSection con el scroll real */
+  const ioSync = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const idx = sections.indexOf(entry.target);
+          if (idx !== -1) currentSection = idx;
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+  sections.forEach(s => ioSync.observe(s));
 
-      <br>
-      <a href="index.html" class="close-next" style="position:relative;z-index:2;">← Volver al libro</a>
-    </div>
-  </section>
+  /* ─────────────────────────────────────────────────────
+     8. SHOW CARDS — efecto tilt suave en desktop
+  ───────────────────────────────────────────────────── */
+  function tiltCard(card) {
+    card.addEventListener('mousemove', e => {
+      const rect   = card.getBoundingClientRect();
+      const x      = (e.clientX - rect.left) / rect.width  - 0.5;
+      const y      = (e.clientY - rect.top)  / rect.height - 0.5;
+      card.style.transform = `translateY(-5px) rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+    });
+    card.addEventListener('mouseleave', () => {
+      card.style.transform = '';
+    });
+  }
 
-  <script src="js/script.js"></script>
-</body>
-</html>
+  if (window.innerWidth > 700) {
+    document.querySelectorAll('.show-card').forEach(tiltCard);
+    document.querySelectorAll('.promise-card').forEach(tiltCard);
+  }
+
+  /* ─────────────────────────────────────────────────────
+     9. CORAZÓN FINAL — explosión de partículas al clickear
+  ───────────────────────────────────────────────────── */
+  const finalHeart = document.querySelector('.final-heart');
+
+  if (finalHeart) {
+    finalHeart.style.cursor = 'pointer';
+    finalHeart.addEventListener('click', () => {
+      const colors = ['#c0445a', '#e8b96a', '#c9933a', '#fff', '#f0a0b0'];
+      const rect = finalHeart.getBoundingClientRect();
+      const cx   = rect.left + rect.width  / 2;
+      const cy   = rect.top  + rect.height / 2;
+
+      for (let i = 0; i < 22; i++) {
+        const p = document.createElement('div');
+        const angle = (Math.PI * 2 * i) / 22;
+        const dist  = 60 + Math.random() * 80;
+        p.style.cssText = `
+          position:fixed;
+          pointer-events:none;
+          z-index:9999;
+          width:${4 + Math.random() * 5}px;
+          height:${4 + Math.random() * 5}px;
+          border-radius:50%;
+          background:${colors[Math.floor(Math.random() * colors.length)]};
+          left:${cx}px; top:${cy}px;
+          transition: transform 0.7s ease-out, opacity 0.7s ease-out;
+        `;
+        document.body.appendChild(p);
+        requestAnimationFrame(() => {
+          p.style.transform = `translate(${Math.cos(angle) * dist}px, ${Math.sin(angle) * dist}px)`;
+          p.style.opacity   = '0';
+        });
+        setTimeout(() => p.remove(), 800);
+      }
+    });
+  }
+
+})();
