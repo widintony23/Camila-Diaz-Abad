@@ -22,6 +22,12 @@
     --col-yellow: #fcd116;
     --petal: #c4b5fd;
     --petal-dark: #7c3aed;
+    --font-body: 'Lato', sans-serif;
+    --font-display: 'Playfair Display', serif;
+    --cream-2: #fdf9ff;
+    --ink-2: #5b21b6;
+    --ink-3: #4c3575;
+    --inner-max: 720px;
 }
 
 html {
@@ -818,6 +824,31 @@ body {
     display: flex;
     align-items: center;
     gap: 0.7rem;
+}
+
+/* ===================== BACK BUTTON ===================== */
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+    color: var(--gold-light);
+    text-decoration: none;
+    font-family: var(--font-body, 'Lato', sans-serif);
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--gold);
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: var(--gold);
+    color: var(--text-dark);
 }
 
 /* ===================== RESPONSIVE ===================== */
