@@ -1,0 +1,93 @@
+/* chapter3.css — Capítulo 3 · Hereda css/styles.css */
+:root { --wine:#1a0a0f; --wine2:#3d1020; --rose:#b3164a; --rose-lt:#f48fb1; }
+body { background: var(--warm-white); }
+.fade-in { opacity:0; transform:translateY(18px); transition:opacity .8s ease, transform .8s ease; }
+.fade-in.visible { opacity:1; transform:none; }
+.c3-wrap { max-width:680px; margin:0 auto; position:relative; z-index:2; }
+.c3-h { font-family:var(--font-display); font-weight:400; line-height:1.2; font-size:clamp(1.8rem,4.5vw,2.8rem); margin-bottom:1.4rem; }
+.c3-p { font-size:1.05rem; line-height:1.9; color:var(--text-mid); margin-bottom:1.2rem; }
+.c3-p strong { color:var(--deep-red); }
+.c3-sec { padding:5rem 1.6rem; }
+
+/* HERO */
+.c3-hero { min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:3rem 1.6rem; position:relative; overflow:hidden;
+  background:radial-gradient(circle at 50% 110%, rgba(179,22,74,.45), transparent 60%), linear-gradient(160deg,var(--wine),var(--wine2) 60%,#1a0812); }
+.c3-badge { font-size:.8rem; letter-spacing:.2em; color:var(--gold-light); margin-bottom:1.4rem; position:relative; z-index:2; }
+.c3-title { font-family:var(--font-display); font-weight:400; color:#fff; font-size:clamp(2.3rem,7vw,4.4rem); line-height:1.15; position:relative; z-index:2; }
+.c3-title em { display:block; color:var(--rose-lt); font-style:italic; }
+.c3-sub { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(1.05rem,2.6vw,1.35rem); color:rgba(255,255,255,.7); max-width:480px; line-height:1.7; margin-top:1.6rem; position:relative; z-index:2; }
+.c3-hint { margin-top:3rem; color:rgba(255,255,255,.35); font-size:.8rem; letter-spacing:.2em; position:relative; z-index:2; animation:c3b 2s ease-in-out infinite; }
+@keyframes c3b { 50% { transform:translateY(6px); } }
+
+/* PETALOS CAYENDO */
+#petals { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+.petal { position:absolute; top:-30px; background:linear-gradient(135deg,#e8588a,#8e1240); border-radius:150% 0 150% 0; opacity:.85; animation:fall linear infinite; }
+@keyframes fall { to { transform:translate(var(--dx),110vh) rotate(var(--r)); } }
+
+/* COMPAS */
+.c3-beat-sec { background:var(--cream); }
+.beat { display:flex; justify-content:center; align-items:flex-end; gap:.9rem; margin:2.4rem 0; }
+.beat div { text-align:center; font-family:var(--font-display); font-style:italic; color:var(--text-light); font-size:.9rem; }
+.beat i { display:block; border-radius:50%; margin:0 auto .5rem; background:var(--petal); animation:beat 2.4s ease-in-out infinite; animation-delay:var(--n); }
+.beat .slow i { width:30px; height:30px; }
+.beat .fast i { width:16px; height:16px; background:var(--rose); }
+@keyframes beat { 0%,100%{ transform:scale(1); opacity:.5; } 12%{ transform:scale(1.35); opacity:1; } 30%{ transform:scale(1); opacity:.5; } }
+
+/* ESTE MES */
+.c3-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:2rem; }
+.c3-card { background:#fff; border-top:3px solid var(--rose); border-radius:6px; padding:1.6rem; box-shadow:0 4px 28px rgba(91,33,182,.08); }
+.c3-card h3 { font-family:var(--font-display); color:var(--deep-red); font-size:1.1rem; margin-bottom:.6rem; }
+.c3-card p { font-size:.93rem; line-height:1.75; color:var(--text-mid); }
+.c3-quote { border-left:3px solid var(--gold); padding:1rem 1.5rem; margin:2.5rem 0 0; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.3rem; color:var(--deep-red); background:linear-gradient(90deg,rgba(196,146,58,.08),transparent); }
+
+/* JARDIN */
+.garden-sec { background:linear-gradient(180deg,var(--wine),var(--wine2)); text-align:center; color:#fff; }
+.garden-sec .c3-h { color:var(--rose-lt); }
+.garden-sec .c3-p { color:rgba(255,255,255,.72); }
+.garden { display:grid; grid-template-columns:repeat(5,1fr); gap:.4rem; margin:2rem auto 1rem; max-width:560px; }
+.rose-btn { background:none; border:0; cursor:pointer; padding:.2rem; border-radius:12px; }
+.rose-btn:focus-visible { outline:2px solid var(--gold-light); }
+.rose { width:100%; height:auto; overflow:visible; filter:drop-shadow(0 4px 8px rgba(0,0,0,.4)); }
+.rose .L { transform-origin:50px 55px; transform:rotate(-25deg) scale(.32); transition:transform .9s cubic-bezier(.2,1.3,.4,1); }
+.rose.open .L { transform:none; }
+.rose .L2 { transition-delay:.1s; } .rose .L3 { transition-delay:.2s; } .rose .L4 { transition-delay:.3s; }
+.rose-btn:hover .rose:not(.open) { transform:scale(1.08); }
+.rose-btn.active .rose { filter:drop-shadow(0 0 10px rgba(244,143,177,.8)); }
+.rose-msg { min-height:5.5rem; max-width:480px; margin:1rem auto 0; font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.35rem; line-height:1.55; color:var(--gold-light); }
+.rose-count { font-size:.8rem; letter-spacing:.15em; color:rgba(255,255,255,.45); margin-top:.5rem; }
+.garden-done { max-width:480px; margin:1.5rem auto 0; font-family:var(--font-display); font-style:italic; font-size:1.2rem; color:var(--rose-lt); opacity:0; transition:opacity 1.2s; }
+.garden-done.show { opacity:1; }
+
+/* POEMA */
+.poem-sec { background:var(--cream); }
+.poem { background:#fff; border-radius:4px; padding:3.2rem 2.6rem; box-shadow:0 8px 60px rgba(91,33,182,.1); position:relative; margin-top:2rem; }
+.poem::after { content:''; position:absolute; left:2.6rem; right:2.6rem; bottom:0; height:6px; background:linear-gradient(90deg,var(--rose),var(--gold)); }
+.poem h3 { font-family:var(--font-display); font-style:italic; font-weight:400; text-align:center; color:var(--deep-red); font-size:1.6rem; margin-bottom:.4rem; }
+.poem .for { text-align:center; color:var(--text-light); font-size:.85rem; margin-bottom:2.4rem; }
+.stanza { font-family:'Cormorant Garamond',serif; font-size:1.2rem; line-height:1.85; color:#2b1230; margin-bottom:1.7rem; }
+.stanza.big { font-family:var(--font-display); font-style:italic; color:var(--rose); font-size:1.3rem; text-align:center; line-height:1.7; }
+.poem-sign { margin-top:2.5rem; font-family:var(--font-display); font-style:italic; color:var(--ink-2); text-align:right; }
+
+/* CIERRE */
+.c3-close { min-height:70vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:4rem 1.6rem; background:linear-gradient(160deg,var(--wine),var(--wine2)); color:#fff; }
+.c3-close .heart { font-size:2.6rem; color:var(--rose-lt); animation:heartbeat 1.8s ease infinite; margin-bottom:1.2rem; }
+.c3-close h2 { font-family:var(--font-display); font-weight:400; font-size:clamp(1.7rem,4.5vw,2.6rem); line-height:1.3; margin-bottom:1rem; }
+.c3-close h2 em { color:var(--gold-light); }
+.c3-close p { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:rgba(255,255,255,.7); max-width:460px; line-height:1.7; }
+.c3-close .flag { margin:0; }
+.c3-flags { display:flex; align-items:center; gap:1.2rem; margin:2rem 0 1.5rem; }
+.c3-flags span { color:var(--rose-lt); font-size:1.5rem; }
+.c3-close a.close-next { color:var(--gold-light); text-decoration:none; border:1px solid var(--gold); border-radius:30px; padding:.5rem 1.4rem; }
+
+@media (max-width:600px) {
+  .c3-grid { grid-template-columns:1fr; }
+  .garden { grid-template-columns:repeat(3,1fr); }
+  .poem { padding:2.4rem 1.4rem; }
+  .poem::after { left:1.4rem; right:1.4rem; }
+  .beat { gap:.5rem; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .petal, .beat i, .c3-hint, .c3-close .heart { animation:none; }
+  .fade-in { transition:none; opacity:1; transform:none; }
+  .rose .L { transition:none; }
+}

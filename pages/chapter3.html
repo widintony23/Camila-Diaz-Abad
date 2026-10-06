@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Capítulo 3 — Al compás del cha-cha-chá</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/styles.css" />
+    <link rel="stylesheet" href="../css/chapter3.css" />
+  </head>
+  <body>
+    <a href="../index.html" class="back-btn">← Volver al inicio</a>
+
+    <!-- HERO -->
+    <section class="c3-hero">
+      <div id="petals"></div>
+      <p class="c3-badge">Capítulo tres · 1 año y 3 meses</p>
+      <h1 class="c3-title">Quince meses<em>al compás del cha-cha-chá</em></h1>
+      <p class="c3-sub">
+        No fue un mes perfecto, mi amor, pero seguimos bailando y eso es lo que
+        importa.
+      </p>
+      <p class="c3-hint">▼ &nbsp; sigue leyendo</p>
+    </section>
+
+    <!-- COMPÁS -->
+    <section class="c3-sec c3-beat-sec">
+      <div class="c3-wrap fade-in">
+        <h2 class="c3-h" style="color: var(--deep-red)">
+          Lento, lento,<br />y de pronto lo inesperado
+        </h2>
+        <div class="beat" aria-hidden="true">
+          <div class="slow" style="--n: 0s"><i style="--n: 0s"></i>lento</div>
+          <div class="slow"><i style="--n: 0.4s"></i>lento</div>
+          <div class="fast"><i style="--n: 0.8s"></i>cha</div>
+          <div class="fast"><i style="--n: 1.1s"></i>cha</div>
+          <div class="fast"><i style="--n: 1.4s"></i>chá</div>
+        </div>
+        <p class="c3-p">
+          Este mes nos tocó bailar con prisa mi amore, tú con la universidad
+          quitándote casi todo el tiempo y Yo, con mi pasantía y mi horario no
+          tan regular, se que hubo ratos lentos, de cansancio y poco espacio
+          para nosotros.
+        </p>
+        <p class="c3-p">
+          Pero lo que tenemos, el amor nos ayuda a después, dar dos pasos
+          tranquilos y llenos de alegría. Así fueron nuestras noches: una
+          llamada, una risa, un juego a medias.
+          <strong
+            >Nadie dijo que bailar fuera ir siempre a la misma velocidad, lo
+            importante es no soltarse.</strong
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- ESTE MES -->
+    <section class="c3-sec">
+      <div class="c3-wrap">
+        <h2 class="c3-h fade-in" style="color: var(--deep-red)">
+          Así fue<br />nuestro mes
+        </h2>
+        <p class="c3-p fade-in">
+          No tuvimos grandes planes, tuvimos lo de siempre, tú y yo, cada uno
+          desde su lado de la pantalla.
+        </p>
+        <div class="c3-grid fade-in">
+          <div class="c3-card">
+            <h3>Una serie nueva</h3>
+            <p>
+              Empezamos Demon Slayer juntos, ahora ya es parte de nuestras
+              noches y bueno, cada capítulo es una excusa más para estar
+              contigo.
+            </p>
+          </div>
+          <div class="c3-card">
+            <h3>Jugar y medio hablar</h3>
+            <p>
+              Entre partidas, bromas y conversaciones a medias, descubrimos que
+              a veces eso es todo lo que hace falta.
+            </p>
+          </div>
+          <div class="c3-card">
+            <h3>Dormirnos en llamada</h3>
+            <p>
+              La forma más tranquila de estar juntos son nuestras llamadas, tu
+              respiración al otro lado y el sueño ganándonos a los dos, unas
+              veces a mi y otras a ti tambien.
+            </p>
+          </div>
+          <div class="c3-card">
+            <h3>Peleas chiquitas</h3>
+            <p>
+              Hubo tropiezos, pero ninguno nos logro soltar la mano, lo
+              arreglamos y creo que nos conocemos un poquito mejor.
+            </p>
+          </div>
+        </div>
+        <p class="c3-quote fade-in">
+          Un mes de pasos rápidos y pasos lentos, pero nunca de pasos separados.
+        </p>
+      </div>
+    </section>
+
+    <!-- JARDÍN DE ROSAS -->
+    <section
+      class="c3-sec garden-sec"
+      style="position: relative; overflow: hidden"
+    >
+      <div id="petalsGarden"></div>
+      <div class="c3-wrap">
+        <h2 class="c3-h">Quince rosas<br />para mi niña</h2>
+        <p class="c3-p">
+          Una por cada mes.
+          <br />
+          Toca cada una y la verás florecer, porque sé que te encantan las
+          rosas.
+        </p>
+        <div class="garden" id="garden"></div>
+        <p class="rose-msg" id="roseMsg" aria-live="polite">
+          Toca una rosa para abrirla.
+        </p>
+        <p class="rose-count" id="roseCount">0 de 15 rosas abiertas</p>
+        <p class="garden-done" id="gardenDone">
+          Quince rosas abiertas, y todavía me quedan razones.
+        </p>
+      </div>
+    </section>
+
+    <!-- POEMA -->
+    <section class="c3-sec poem-sec">
+      <div class="c3-wrap">
+        <div class="poem fade-in">
+          <h3>Aquí voy a estar</h3>
+          <p class="for">Para Camila, en nuestro mes quince</p>
+
+          <p class="stanza">
+            Quince meses, mi amor y aún me sorprende<br />cómo un chat tan raro
+            se volvió mi hogar,<br />cómo tu nombre en la pantalla enciende<br />el
+            día más gris que me tocó pasar.
+          </p>
+
+          <p class="stanza">
+            Dicen que el amor es un baile lento,<br />pero el nuestro lleva su
+            propio compás,<br />un, dos, y tres en el aliento<br />cuando la
+            vida nos aprieta de más.
+          </p>
+
+          <p class="stanza">
+            Tú, con tus tareas y tus noches de estudio,<br />con esas manos que
+            estan aprendiemdo a levantar ciudades, <br />yo con mi pasantía y
+            mis horarios,<br />corriendo detrás de mis responsabilidades.
+          </p>
+
+          <p class="stanza">
+            Y a veces el tiempo nos quedó pequeño,<br />y a veces la voz llegó
+            cansada,<br />y hubo discusiones, de esas de mal sueño,<br />que al
+            final se deshacen en nada.
+          </p>
+
+          <p class="stanza">
+            Pero mira lo que somos todavía, <br />dos personas que se buscan
+            cuando el día se apaga,<br />dos que se duermen en la misma
+            llamada<br />y al despertar se encuentran sin falta.(Se que algunas
+            veces fallamo eso)
+          </p>
+
+          <p class="stanza">
+            Empezamos una serie de espadas y hermanos,<br />y entre capítulo y
+            capítulo aprendí a tu lado<br />que ser fuerte es cuidar con las
+            manos<br />lo que se ama, y no soltarlo ni un instante.
+          </p>
+
+          <p class="stanza">
+            Hemos jugado, hablado a medias, reído de todo,<br />sin gran plan y
+            sin gran ocasión,<br />y sin darme cuenta, a mi modo,<br />ahí es
+            donde más cerca he sentido tu corazón.
+          </p>
+
+          <p class="stanza">
+            Te hablo de rosas porque eres como ellas,<br />hermosa, sí, pero
+            también valiente,<br />con tus espinas bien puestas, tus
+            estrellas,<br />y esa ternura que se queda en la gente.
+          </p>
+
+          <p class="stanza">
+            Tú no floreces cuando todo es fácil,<br />floreces cuando el
+            invierno aprieta,<br />cuando el cansancio te pesa y aun así<br />sigues
+            de pie, mi arquitecta consentida.
+          </p>
+
+          <p class="stanza">
+            Y yo, que no soy perfecto, te lo confieso:<br />he fallado, me he
+            callado, me he perdido,<br />pero nunca, nunca, ni por un
+            segundo,<br />te he sacado de mi pecho ni te he olvidado.
+          </p>
+
+          <p class="stanza">
+            Si un día el examen te quita el sueño,<br />aquí estaré, con mi voz
+            y mi paciencia.<br />Si un día el miedo te hace sentir pequeña,<br />te
+            recordaré lo grande de tu existencia.
+          </p>
+
+          <p class="stanza">
+            Si un día lloras, aquí voy a estar.<br />Si un día ríes, aquí voy a
+            estar.<br />Si un día no sabes ni cómo te sientes,<br />aquí, a tu
+            lado, me vas a encontrar.
+          </p>
+
+          <p class="stanza">
+            Cuando lleguen las noches de desvelo,<br />cuando el trabajo te pese
+            en los hombros,<br />yo seré tu llamada abierta en el cielo,<br />tu
+            compañía, aunque estemos en otros rumbos.
+          </p>
+
+          <p class="stanza">
+            Y cuando por fin nos encontremos,<br />México y Colombia en un solo
+            abrazo,<br />te voy a decir lo que hoy te escribo, <br />que mi
+            lugar favorito es tenerte a mi lado.
+          </p>
+
+          <p class="stanza">
+            Voy a bailar contigo todos los pasos:<br />los lentos, los rápidos,
+            los torpes también,<br />y si me pisas, no pasa nada, amor,<br />que
+            a tu lado hasta tropezar se siente bien.
+          </p>
+
+          <p class="stanza">
+            Te amo en los meses fáciles y en los duros,<br />te amo en la risa y
+            en el silencio,<br />te amo en los planes y en los apuros,<br />te
+            amo sin condiciones ni requisitos.
+          </p>
+
+          <p class="stanza">
+            Te amo cuando estás cerca y cuando estás lejos,<br />cuando hay
+            tiempo y cuando no alcanza el día,<br />porque lo que siento por ti,
+            mi reflejo,<br />no se mide en horas ni en mensajes, mi vida.
+          </p>
+
+          <p class="stanza">
+            Así que escucha esto, mi goshera<br />y guárdalo donde nadie lo vea,
+            <br />no importa lo que venga, ni la manera,<br />yo estaré aquí, en
+            todo momento, aunque el mundo cambie de idea.
+          </p>
+
+          <p class="stanza big">
+            Quince meses, quince rosas,<br />y todas las que falten por
+            abrir.<br />Te amo, Camila Diaz Abad, aquí estaré,<br />siempre, a
+            tu lado, hasta el fin.
+          </p>
+
+          <p class="poem-sign">
+            Con todo mi amor,<br />siempre de ti y para ti♥<br />Tu esposo
+            Wininony
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CIERRE -->
+    <section class="c3-close">
+      <span class="heart">♥</span>
+      <h2>Un año y tres meses,<br /><em>y seguimos bailando.</em></h2>
+      <p>
+        Cada mes es un paso más, despacio o rápido, pero siempre juntos, hasta
+        el final
+      </p>
+      <div class="c3-flags">
+        <div class="flag flag-mx">
+          <div class="s1"></div>
+          <div class="s2"></div>
+          <div class="s3"></div>
+        </div>
+        <span>♥</span>
+        <div class="flag flag-co">
+          <div class="s1"></div>
+          <div class="s2"></div>
+          <div class="s3"></div>
+        </div>
+      </div>
+      <a href="../index.html" class="close-next">← Volver al inicio</a>
+    </section>
+
+    <!-- AUDIO: coloca el archivo en assets/audio/la-chachacha.mp3 -->
+    <audio id="bgMusic" loop>
+      <source
+        src="../assets/audio/Jósean Log - Chachachá (Lyric Video) - Jósean Log.mp3"
+        type="audio/mpeg"
+      />
+    </audio>
+    <div class="music-wrap" id="musicWrap">
+      <button class="music-btn" id="musicBtn" aria-label="Reproducir música">
+        ♪
+      </button>
+      <span class="music-label">Chachachá</span>
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/chapter3.js"></script>
+  </body>
+</html>
