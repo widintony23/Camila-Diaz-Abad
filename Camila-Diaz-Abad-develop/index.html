@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camila Díaz Abad</title>
+    <meta name="description"
+        content="Un libro de amor para Camila Díaz.">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+
+    <!-- AUDIO -->
+    <audio id="bgMusic" loop>
+        <source src="assets/audio/Siempre Hace Frio (2016 Remaster) - Linda Ronstadt.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MUSIC BUTTON -->
+    <div class="music-wrap" id="musicWrap">
+        <button class="music-btn" id="musicBtn" aria-label="Reproducir música">♪</button>
+        <span class="music-label">Siempre Hace Frío &nbsp;·&nbsp; Linda Ronstadt</span>
+    </div>
+
+    <!-- NAV DOTS -->
+    <nav class="nav-dots" id="navDots" aria-label="Navegación por secciones"></nav>
+
+    <!-- ===== PORTADA ===== -->
+    <section id="s0">
+        <div
+            style="min-height:100vh;background:linear-gradient(135deg,#1a0a0f 0%,#3d1020 40%,#1a0812 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:2rem;text-align:center;">
+            <div class="stars" id="starsContainer"></div>
+            <div class="cover-deco"></div>
+
+            <div class="flags-row">
+                <div class="flag flag-mx">
+                    <div class="s1"></div>
+                    <div class="s2"></div>
+                    <div class="s3"></div>
+                </div>
+                <span class="connector-hearts">♥ ♥ ♥</span>
+                <div class="flag flag-co">
+                    <div class="s1"></div>
+                    <div class="s2"></div>
+                    <div class="s3"></div>
+                </div>
+            </div>
+
+            <p class="cover-subtitle">Una historia de amor</p>
+            <h1 class="cover-title">Para ti,<br><em>Amor</em></h1>
+            <div class="cover-divider"></div>
+            <p class="cover-name">Camila Díaz Abad</p>
+            <p class="cover-months">15 meses de amor</p>
+            <p class="scroll-hint">▼ &nbsp; sigue leyendo</p>
+        </div>
+    </section>
+
+    <!-- ===== ÍNDICE ===== -->
+    <section id="s1" class="page page--dark" style="display:flex;align-items:center;justify-content:center;">
+        <div class="page-inner" style="text-align:center;">
+            <p class="chapter-label" style="color:var(--gold-light);">Índice</p>
+            <h2 class="page-heading">Nuestra<br><em>Historia</em></h2>
+            
+            <div style="display:flex;flex-direction:column;gap:1.5rem;margin-top:3rem;align-items:center;">
+                <a href="pages/chapter1.html" class="index-link" style="display:block;width:100%;max-width:400px;padding:1.5rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;border-radius:12px;transition:all 0.3s ease;background:rgba(212,175,55,0.05);">
+                    <h3 style="margin:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;">Capítulo 1</h3>
+                    <p style="margin:0.5rem 0 0;font-size:0.9rem;font-family:'Lato',sans-serif;color:var(--text-light);">Felices 10 meses de novios</p>
+                </a>
+                
+                <a href="pages/chapter2.html" class="index-link" style="display:block;width:100%;max-width:400px;padding:1.5rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;border-radius:12px;transition:all 0.3s ease;background:rgba(212,175,55,0.05);">
+                    <h3 style="margin:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;">Capítulo 2</h3>
+                    <p style="margin:0.5rem 0 0;font-size:0.9rem;font-family:'Lato',sans-serif;color:var(--text-light);">Para la mujer que lo está logrando todo</p>
+                </a>
+
+                <a href="pages/chapter3.html" class="index-link" style="display:block;width:100%;max-width:400px;padding:1.5rem;border:1px solid var(--gold);color:var(--gold);text-decoration:none;border-radius:12px;transition:all 0.3s ease;background:rgba(212,175,55,0.05);">
+                    <h3 style="margin:0;font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;">Capítulo 3</h3>
+                    <p style="margin:0.5rem 0 0;font-size:0.9rem;font-family:'Lato',sans-serif;color:var(--text-light);">Quince meses al compás del cha-cha-chá</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
